@@ -1,3 +1,10 @@
+.root {
+    width: 268px;
+    height: 388px;
+    margin: 16px;
+    perspective: 1000px;
+}
+
 .pokemonCard {
     --fire: #FDDFDF;
     --grass: #DEFDE0;
@@ -14,18 +21,15 @@
     --fighting: #E6E0D4;
     --normal:#F5F5F;
 
+    width: inherit;
+    height: inherit;
     position: relative;
     transform-style: preserve-3d;
     transition: .6s .1s;
     transform: rotateY(180deg);
 }
 
-.pokemonCard {
-    width: 268px;
-    height: 388px;
-    margin: 16px;
-    perspective: 1000px;
-}
+
 
 .pokemonCard.active{
     transform: rotateY(0deg);
