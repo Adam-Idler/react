@@ -1,27 +1,31 @@
 import s from './style.module.css';
 
-
-const LayoutBlock = ({ id, title, descr, urlBg='', colorBg }) => {
+const LayoutBlock = ({ id, title, urlBg, colorTitle, colorBg, children }) => {
+    const sectionStyle = {};
+    if (urlBg) {
+        sectionStyle.backgroundImage = `url(${urlBg})`;
+    }
+    if (colorBg) {
+        sectionStyle.backgroundColor = colorBg;        
+    }
     return (
         <section 
-            className={ s.root } 
-            id={ id } 
-            style={{
-                background: `url(${urlBg}) center no-repeat`,
-                backgroundColor: colorBg, 
-            }}>
+            style={sectionStyle}
+            className={s.root} 
+            id={id} 
+            >
 
-            <div className={ s.wrapper }>
+            <div className={s.wrapper}>
 
                 <article>
 
-                    <div className={ s.title }>
-                        { title && <h3>{ title }</h3> }
-                        <span className={ s.separator }></span>
+                    <div className={s.title} style={{color: `${colorTitle}`}}>
+                        { title && <h3>{title}</h3> }
+                        <span className={s.separator}></span>
                     </div>
 
-                    <div className={ s.desc + ' ' + s.full }>
-                        { descr && <p>{ descr }</p> }
+                    <div className={`${s.desc} ${s.full}`}>
+                        {children}
                     </div>
 
                 </article>
